@@ -26,9 +26,7 @@ def triangle_area_similarity(src, tgt, theta_):
 
 def sector_area_similarity(src, tgt, theta_):
     distance_ = euclidean_distance(src, tgt)
-    print(distance_)
     difference_ = magnitude_difference(src, tgt)
-    print(difference_)
     sector_similarity_ = math.pi * ((distance_ + difference_) ** 2)
     sector_similarity_ *= (theta_ / 360)
     return sector_similarity_
@@ -38,7 +36,5 @@ def triangle_sector_similarity(src, tgt):
     theta_ = theta(src, tgt)
     triangle_similarity_ = triangle_area_similarity(src, tgt, theta_)
     sector_similarity_ = sector_area_similarity(src, tgt, theta_)
-    print(sector_similarity_)
     ts_ss_ = triangle_similarity_ * sector_similarity_
-    print(ts_ss_)
     return ts_ss_

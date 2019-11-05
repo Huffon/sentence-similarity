@@ -26,6 +26,22 @@ python sensim.py
 
 <br/>
 
+## Examples
+```
+> python sensim.py --model use --method cosine
+> Similarity using [use] with. [cosine] between
+           source> "I ate an apple"
+           target> "I went to the Apple" is |  0.76871
+
+
+> python sensim.py --model elmo --method ts-ss
+> Similarity using [elmo] with. [ts-ss] between
+           source> "I ate an apple"
+           target> "I went to the Apple" is |  32.35986
+```
+
+<br/>
+
 ## Requirements
 ```
 allennlp==0.9.0
