@@ -13,6 +13,7 @@ And you can also choose **the method** to be used to get the similarity:
 <br/>
 
 ## Installation
+- After cloning this repository, you can simply download all the dependent libraries described in `requirements.txt` with `pip install -r requirements.txt`.
 ```
 git clone https://github.com/Huffon/sentence-similarity.git
 cd sentence-similarity
@@ -36,6 +37,9 @@ python sensim.py
 <br/>
 
 ## Examples
+- In the following section, you can see various use-case of `sentence-similarity`.
+- As you guys know, there is a no silver-bullet which can calculate perfect similarity between sentences. You should conduct various experiments with your dataset.
+    - _**Caution**_: TS-SS score might not fit with short-sentence similarity task, since this method originally devised to calculate the similarity between documents.
 ```
 > python sensim.py --model use --method cosine
 > Similarity using [use] with. [cosine] between
@@ -47,6 +51,7 @@ python sensim.py
 > Similarity using [elmo] with. [ts-ss] between
            source> "I ate an apple"
            target> "I went to the Apple" is |  32.35986
+
 
 > python sensim.py --model bert --method pairwise
 > Similarity using [bert] with. [pairwise] between
