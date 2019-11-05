@@ -2,7 +2,7 @@ import numpy as np
 from utils.basic import cosine_similarity
 
 
-def pairwise_cosine_similarity(src, tgt):
+def pairwise_cosine_sim(src, tgt):
     sim_matrix = np.zeros([len(src), len(tgt)])
 
     for i in range(len(src)):
@@ -15,7 +15,7 @@ def pairwise_cosine_similarity(src, tgt):
     return max_sim
 
 
-def pairwise_cosine_similarity_idf(src, tgt):
+def pairwise_cosine_sim_idf(src, tgt):
     sim_matrix = np.zeros([len(src), len(tgt)])
 
     for i in range(len(src)):
@@ -30,13 +30,11 @@ def pairwise_cosine_similarity_idf(src, tgt):
     return max_sim
 
 
-def bert_pairwise_cosine_similarity(src, tgt):
+def bert_pairwise_cosine_sim(src, tgt, idf=False):
+    from bert_score import score
+    if idf:
+        p, _, _ = score([src], [tgt], lang='en', idf=True)
+        return p.item()
+
     p, _, _ = score([src], [tgt], lang='en')
-
-    return p
-
-
-def bert_pairwise_cosine_similarity_idf(src, tgt):
-    p, _, _ = score([src], [tgt], lang='en')
-
-    return p
+    return p.item()
