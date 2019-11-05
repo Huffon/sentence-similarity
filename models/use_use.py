@@ -1,4 +1,4 @@
-import logging
+from absl import logging
 from utils.basic import *
 from utils.ts_ss import triangle_sector_similarity
 
