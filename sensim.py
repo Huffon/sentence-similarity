@@ -6,16 +6,16 @@ from models.use_bert import BERTCalculator
 
 def main(config):
     models = {
-        'use': USECalculator(config),
-        'elmo': ELMoCalculator(config),
-        'bert': BERTCalculator(config),
+        'use': USECalculator,
+        'elmo': ELMoCalculator,
+        'bert': BERTCalculator,
     }
 
     if config.model not in models:
         print(f'[ERROR] The model you chosen is not supported yet.')
         return
 
-    model = models[config.model]
+    model = models[config.model](config)
     similarity = model.calculate()
 
     if not similarity:

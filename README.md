@@ -12,9 +12,18 @@ And you can also choose **the method** to be used to get the similarity:
 
 <br/>
 
+## Installation
+```
+git clone https://github.com/Huffon/sentence-similarity.git
+cd sentence-similarity
+pip install -r requirements.txt
+```
+
+<br/>
+
 ## Usage
 - You have to choose the model and method to be used to calculate the similarity between source and target sentences.
-- You should wrap your source and target sentences with double quotations(").
+- You should wrap your source and target sentences with double quotations(**"**).
 
 ```
 python sensim.py
@@ -38,6 +47,11 @@ python sensim.py
 > Similarity using [elmo] with. [ts-ss] between
            source> "I ate an apple"
            target> "I went to the Apple" is |  32.35986
+
+> python sensim.py --model bert --method pairwise
+> Similarity using [bert] with. [pairwise] between
+           source> "I ate an apple"
+           target> "I went to the Apple" is |  0.91523
 ```
 
 <br/>

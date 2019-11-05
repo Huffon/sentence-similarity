@@ -26,6 +26,10 @@ class ELMoCalculator:
             'pairwise-idf': pairwise_cos_sim_idf
         }
 
+        if 'pairwise' in self.method:
+            print(f'[ERROR] Pairwise similarity is not supported with ELMo yet')
+            return False
+
         if self.method not in methods:
             return False
 
