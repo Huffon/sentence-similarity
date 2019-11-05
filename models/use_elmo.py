@@ -1,6 +1,6 @@
 from utils.basic import *
 from utils.ts_ss import triangle_sector_similarity
-from utils.pairwise import *
+from utils.pairwise import pairwise_cos_sim, pairwise_cos_sim_idf
 
 from spacy.lang.en import English
 from spacy.tokenizer import Tokenizer
@@ -22,8 +22,8 @@ class ELMoCalculator:
             'euclidean': euclidean_distance,
             'inner': inner_product,
             'ts-ss': triangle_sector_similarity,
-            'pairwise': pairwise_cosine_similarity,
-            'pairwise-idf': pairwise_cosine_similarity_idf
+            'pairwise': pairwise_cos_sim,
+            'pairwise-idf': pairwise_cos_sim_idf
         }
 
         if self.method not in methods:

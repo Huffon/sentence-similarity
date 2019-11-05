@@ -10,6 +10,7 @@ And you can also choose **the method** to be used to get the similarity:
     4. Pairwise-cosine similarity
     5. Pairwise-cosine similarity + IDF
 
+<br/>
 
 ## Usage
 - You have to choose the model and method to be used to calculate the similarity between source and target sentences.
@@ -23,6 +24,8 @@ python sensim.py
     --method METHOD_NAME
 ```
 
+<br/>
+
 ## Requirements
 ```
 allennlp==0.9.0
@@ -35,16 +38,19 @@ torch==1.2.0
 transformers==2.1.1
 ```
 
+<br/>
 
 ## References
 ### Papers
 - [Universal Sentence Encoder](https://arxiv.org/abs/1803.11175)
 - [Deep contextualized word representations](https://arxiv.org/abs/1802.05365)
 - [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+- [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/abs/1908.10084)
 - [A Hybrid Geometric Approach for Measuring Similarity Level Among Documents and Document Clustering](https://ieeexplore.ieee.org/document/7474366/metrics#metrics)
 
 ### Libraries
 - [TF-hub's Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder/2)
 - [Allen NLP's ELMo](https://github.com/allenai/allennlp)
+- [Sentence Transformers](https://github.com/UKPLab/sentence-transformers)
 - [BERTScore](https://github.com/Tiiiger/bert_score)
 - [Vector Similarity](https://github.com/taki0112/Vector_Similarity)
