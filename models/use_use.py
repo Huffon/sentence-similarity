@@ -1,10 +1,11 @@
+from absl import logging
 from utils.basic import *
 from utils.ts_ss import triangle_sector_similarity
 
 import tensorflow as tf
 import tensorflow_hub as hub
 
-
+logging.set_verbosity(logging.INFO)
 module_url = "https://tfhub.dev/google/universal-sentence-encoder/2"
 
 
@@ -19,19 +20,27 @@ class USECalculator:
             'cosine': cosine_similarity,
             'euclidean': euclidean_distance,
             'inner': inner_product,
-            'ts-ss': triangle_sector_similarity,
-            'pairwise': 4,
-            'pairwise-idf': 5
+            'ts-ss': triangle_sector_similarity
         }
+
+        if 'pairwise' in self.method:
+            print(f'[ERROR] Pairwise similarity is not supported with DAN')
+            return False
 
         if self.method not in methods:
             return False
 
-        model = hub.Module(module_url)
-
+        embed = hub.Module(module_url)
         print(f'[Embedding] Now embedding sentence...')
-        embed_source = model(self.source)
-        embed_target = model(self.target)
+        sentences = [self.source, self.target]
+
+        with tf.Session() as session:
+            session.run(
+                [tf.compat.v1.global_variables_initializer(),
+                 tf.compat.v1.tables_initializer()])
+            embeddings = session.run(embed(sentences))
+            embed_source = np.array(embeddings[0])
+            embed_target = np.array(embeddings[1])
 
         method = methods[self.method]
         print(f'[Calculating] Calculating similarity between sentences...')

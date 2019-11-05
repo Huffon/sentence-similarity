@@ -24,7 +24,7 @@ def main(config):
 
     print(f'Similarity using [{config.model}] with. [{config.method}] between\n'
           f'\t source> "{config.source}"\n'
-          f'\t target> "{config.target}" is | {similarity: .2f}')
+          f'\t target> "{config.target}" is | {similarity: .5f}')
 
 
 if __name__ == '__main__':
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         description='Sentence similarity calculator'
     )
     parser.add_argument('--source', type=str, default='I ate an apple')
-    parser.add_argument('--target', type=str, default='I ate an orange')
+    parser.add_argument('--target', type=str, default='I went to the Apple')
     parser.add_argument('--model', type=str, default='use',
                         choices=['use', 'elmo', 'bert'])
     parser.add_argument('--method', type=str, default='cosine',

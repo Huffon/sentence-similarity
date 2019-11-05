@@ -10,7 +10,6 @@ def pairwise_cos_sim(src, tgt):
             sim_matrix[i][j] = cosine_similarity(src[i], tgt[j])
 
     max_sim = np.amax(sim_matrix, axis=1)
-    print(max_sim.shape)
 
     return max_sim
 
@@ -23,7 +22,6 @@ def pairwise_cos_sim_idf(src, tgt):
             sim_matrix[i][j] = cosine_similarity(src[i], tgt[j])
 
     max_sim = np.amax(sim_matrix, axis=1)
-    print(max_sim.shape)
 
     return max_sim
 

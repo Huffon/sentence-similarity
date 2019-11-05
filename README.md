@@ -6,9 +6,9 @@ And you can also choose **the method** to be used to get the similarity:
     1. Cosine similarity
     2. Euclidean distance
     3. Inner product
-    3. TS-SS score
-    4. Pairwise-cosine similarity
-    5. Pairwise-cosine similarity + IDF
+    4. TS-SS score
+    5. Pairwise-cosine similarity
+    6. Pairwise-cosine similarity + IDF
 
 <br/>
 
@@ -29,13 +29,13 @@ python sensim.py
 ## Requirements
 ```
 allennlp==0.9.0
-en-core-web-sm==2.1.0
-numpy==1.17.2
-spacy==2.1.8
-tensorflow==2.0.0
+bert-score==0.2.1
+numpy==1.17.3
+sentence-transformers==0.2.3
+spacy==2.1.9
+tensorflow==1.15.0
 tensorflow-hub==0.7.0
-torch==1.2.0
-transformers==2.1.1
+torch==1.3.0
 ```
 
 <br/>
