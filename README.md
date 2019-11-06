@@ -63,6 +63,7 @@ python sensim.py
 <br/>
 
 ## Requirements
+- Python version should be higher than **3.7**
 ```
 allennlp==0.9.0
 bert-score==0.2.1

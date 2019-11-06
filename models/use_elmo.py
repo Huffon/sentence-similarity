@@ -24,8 +24,8 @@ class ELMoCalculator:
             'angular': angular_distance,
             'inner': inner_product,
             'ts-ss': triangle_sector_similarity,
-            'pairwise': bert_pairwise_cos_sim,
-            'pairwise-idf': bert_pairwise_cos_sim
+            'pairwise': pairwise_cos_sim,
+            'pairwise-idf': pairwise_cos_sim
         }
 
         if 'pairwise' in self.method:
