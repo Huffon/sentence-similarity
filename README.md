@@ -4,12 +4,13 @@ This repo contains various ways to calculate the similarity between source and t
 And you can also choose **the method** to be used to get the similarity:
 
     1. Cosine similarity
-    2. Euclidean distance
-    3. Inner product
-    4. TS-SS score
-    5. Pairwise-cosine similarity
-    6. Pairwise-cosine similarity + IDF
-
+    2. Manhattan distance
+    3. Euclidean distance
+    4. Angular distance
+    5. Inner product
+    6. TS-SS score
+    7. Pairwise-cosine similarity
+    8. Pairwise-cosine similarity + IDF
 <br/>
 
 ## Installation
@@ -72,6 +73,12 @@ tensorflow==1.15.0
 tensorflow-hub==0.7.0
 torch==1.3.0
 ```
+
+<br/>
+
+## TODO
+- Add pairwise cosine similarity method in `use_elmo`.
+- Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
 
 <br/>
 

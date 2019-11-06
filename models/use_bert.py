@@ -15,7 +15,9 @@ class BERTCalculator:
     def calculate(self):
         methods = {
             'cosine': cosine_similarity,
+            'manhattan': manhattan_distance,
             'euclidean': euclidean_distance,
+            'angular': angular_distance,
             'inner': inner_product,
             'ts-ss': triangle_sector_similarity,
             'pairwise': bert_pairwise_cos_sim,

@@ -18,9 +18,11 @@ class USECalculator:
     def calculate(self):
         methods = {
             'cosine': cosine_similarity,
+            'manhattan': manhattan_distance,
             'euclidean': euclidean_distance,
+            'angular': angular_distance,
             'inner': inner_product,
-            'ts-ss': triangle_sector_similarity
+            'ts-ss': triangle_sector_similarity,
         }
 
         if 'pairwise' in self.method:

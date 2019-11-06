@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, default='use',
                         choices=['use', 'elmo', 'bert'])
     parser.add_argument('--method', type=str, default='cosine',
-                        choices=['cosine', 'euclidean', 'inner', 'ts-ss',
-                                 'pairwise', 'pairwise-idf'])
+                        choices=['cosine', 'manhattan', 'euclidean', 'inner',
+                                 'ts-ss', 'angular', 'pairwise', 'pairwise-idf'])
     args = parser.parse_args()
     main(args)

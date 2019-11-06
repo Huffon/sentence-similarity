@@ -19,11 +19,13 @@ class ELMoCalculator:
     def calculate(self):
         methods = {
             'cosine': cosine_similarity,
+            'manhattan': manhattan_distance,
             'euclidean': euclidean_distance,
+            'angular': angular_distance,
             'inner': inner_product,
             'ts-ss': triangle_sector_similarity,
-            'pairwise': pairwise_cos_sim,
-            'pairwise-idf': pairwise_cos_sim_idf
+            'pairwise': bert_pairwise_cos_sim,
+            'pairwise-idf': bert_pairwise_cos_sim
         }
 
         if 'pairwise' in self.method:

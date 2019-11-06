@@ -4,13 +4,19 @@ from numpy.linalg import norm
 from numpy import arccos
 
 
-def angular_cosine_similarity(src, tgt):
-    similarity_ = (1-np.arccos(np.dot(src, tgt)/(np.linalg.norm(src)*np.linalg.norm(tgt)))/3.1416)
-    return similarity_
+def angular_distance(src, tgt):
+    distance_ = 1 - (np.arccos(cosine_similarity(src, tgt)) / math.pi)
+    return distance_
+
 
 def cosine_similarity(src, tgt):
     similarity_ = np.dot(src, tgt) / (norm(src) * norm(tgt))
     return similarity_
+
+
+def manhattan_distance(src, tgt):
+    distance_ = sum([abs((x - y)) for x, y in zip(src, tgt)])
+    return distance_
 
 
 def euclidean_distance(src, tgt):
