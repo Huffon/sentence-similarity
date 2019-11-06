@@ -38,5 +38,6 @@ if __name__ == '__main__':
     parser.add_argument('--method', type=str, default='cosine',
                         choices=['cosine', 'manhattan', 'euclidean', 'inner',
                                  'ts-ss', 'angular', 'pairwise', 'pairwise-idf'])
+    parser.add_argument('--verbose', type=bool, default=True)
     args = parser.parse_args()
     main(args)

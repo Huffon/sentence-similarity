@@ -14,6 +14,7 @@ class USECalculator:
         self.source = config.source
         self.target = config.target
         self.method = config.method
+        self.verbose = config.verbose
 
     def calculate(self):
         methods = {
@@ -33,7 +34,8 @@ class USECalculator:
             return False
 
         embed = hub.Module(module_url)
-        print(f'[Embedding] Now embedding sentence...')
+        if self.verbose:
+            print(f'[Embedding] Now embedding sentence...')
         sentences = [self.source, self.target]
 
         with tf.Session() as session:
@@ -45,6 +47,7 @@ class USECalculator:
             embed_target = np.array(embeddings[1])
 
         method = methods[self.method]
-        print(f'[Calculating] Calculating similarity between sentences...')
+        if self.verbose:
+            print(f'[Calculating] Calculating similarity between sentences...')
         similarity = method(embed_source, embed_target)
         return similarity

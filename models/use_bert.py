@@ -11,6 +11,7 @@ class BERTCalculator:
         self.source = config.source
         self.target = config.target
         self.method = config.method
+        self.verbose = config.verbose
 
     def calculate(self):
         methods = {
@@ -34,11 +35,13 @@ class BERTCalculator:
 
         model = SentenceTransformer('bert-base-nli-mean-tokens')
 
-        print(f'[Embedding] Now embedding sentence...')
+        if self.verbose:
+            print(f'[Embedding] Now embedding sentence...')
         embed_source = model.encode([self.source])[0]
         embed_target = model.encode([self.target])[0]
 
         method = methods[self.method]
-        print(f'[Calculating] Calculating similarity between sentences...')
+        if self.verbose:
+            print(f'[Calculating] Calculating similarity between sentences...')
         similarity = method(embed_source, embed_target)
         return similarity

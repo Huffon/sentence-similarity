@@ -15,6 +15,7 @@ class ELMoCalculator:
         self.source = config.source
         self.target = config.target
         self.method = config.method
+        self.verbose = config.verbose
 
     def calculate(self):
         methods = {
@@ -46,7 +47,8 @@ class ELMoCalculator:
 
         elmo = Elmo(options_file, weight_file, 1, dropout=0)
 
-        print(f'[Embedding] Now embedding sentence...')
+        if self.verbose:
+            print(f'[Embedding] Now embedding sentence...')
         embed_source = elmo(source_ids)['elmo_representations'][0].squeeze(0)
         embed_target = elmo(target_ids)['elmo_representations'][0].squeeze(0)
 
@@ -58,6 +60,7 @@ class ELMoCalculator:
             embed_target = vector_summation(embed_target)
 
         method = methods[self.method]
-        print(f'[Calculating] Calculating similarity between sentences...')
+        if self.verbose:
+            print(f'[Calculating] Calculating similarity between sentences...')
         similarity = method(embed_source, embed_target)
         return similarity
