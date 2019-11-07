@@ -64,6 +64,7 @@ python sensim.py
 
 ## Requirements
 - Python version should be higher than **3.7**
+- You can install **PyTorch** via official [Installation guide](https://pytorch.org/get-started/locally/)
 ```
 allennlp==0.9.0
 bert-score==0.2.1

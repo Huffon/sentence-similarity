@@ -27,8 +27,8 @@ def euclidean_distance(src, tgt):
 
 
 def inner_product(src, tgt):
-    similarity = np.inner(src, tgt)
-    return similarity
+    similarity_ = np.inner(src, tgt)
+    return similarity_
 
 
 def vector_summation(sentence):
