@@ -36,12 +36,12 @@ class BERTCalculator:
         model = SentenceTransformer('bert-base-nli-mean-tokens')
 
         if self.verbose:
-            print(f'[Embedding] Now embedding sentence...')
+            print(f'[LOGGING] Now embedding sentence...')
         embed_source = model.encode([self.source])[0]
         embed_target = model.encode([self.target])[0]
 
         method = methods[self.method]
         if self.verbose:
-            print(f'[Calculating] Calculating similarity between sentences...')
+            print(f'[LOGGING] Calculating similarity between sentences...')
         similarity = method(embed_source, embed_target)
         return similarity

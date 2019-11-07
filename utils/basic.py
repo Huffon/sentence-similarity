@@ -33,5 +33,5 @@ def inner_product(src, tgt):
 
 def vector_summation(sentence):
     sent_len = sentence.shape[0]
-    sentence = sentence.sum(axis=0) / sent_len
-    return sentence
+    summed_sentence_ = sentence.sum(axis=0) / sent_len
+    return summed_sentence_

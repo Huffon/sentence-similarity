@@ -48,7 +48,7 @@ class ELMoCalculator:
         elmo = Elmo(options_file, weight_file, 1, dropout=0)
 
         if self.verbose:
-            print(f'[Embedding] Now embedding sentence...')
+            print(f'[LOGGING] Now embedding sentence...')
         embed_source = elmo(source_ids)['elmo_representations'][0].squeeze(0)
         embed_target = elmo(target_ids)['elmo_representations'][0].squeeze(0)
 
@@ -56,11 +56,11 @@ class ELMoCalculator:
         embed_target = embed_target.detach().numpy()
 
         if 'pairwise' not in self.method:
-            embed_source = vector_summation(embed_source)
-            embed_target = vector_summation(embed_target)
+            summed_source = vector_summation(embed_source)
+            summed_target = vector_summation(embed_target)
 
         method = methods[self.method]
         if self.verbose:
-            print(f'[Calculating] Calculating similarity between sentences...')
-        similarity = method(embed_source, embed_target)
+            print(f'[LOGGING] Calculating similarity between sentences...')
+        similarity = method(summed_source, summed_target)
         return similarity

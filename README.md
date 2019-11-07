@@ -33,6 +33,7 @@ python sensim.py
     --target "TARGET_SENTENCE"
     --model  MODEL_NAME
     --method METHOD_NAME
+    --verbose LOG_OPTION (bool)
 ```
 
 <br/>

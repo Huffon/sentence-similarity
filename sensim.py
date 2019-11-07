@@ -22,7 +22,12 @@ def main(config):
         print(f'[ERROR] The method you chosen is not supported.')
         return
 
-    print(f'Similarity using [{config.model}] with. [{config.method}] between\n'
+    if config.verbose:
+        print(f'[LOGGING] You chose the "{config.model}" as a model.\n'
+              f'[LOGGING] You chose the "{config.method}" as a method.')
+
+    print(f'[RESULT]:\n'
+          f'Similarity using [{config.model}] with. [{config.method}] between\n'
           f'\t source> "{config.source}"\n'
           f'\t target> "{config.target}" is | {similarity: .5f}')
 
