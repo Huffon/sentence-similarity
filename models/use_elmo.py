@@ -11,56 +11,48 @@ weight_file = "https://allennlp.s3.amazonaws.com/models/elmo/2x4096_512_2048cnn_
 
 
 class ELMoCalculator:
-    def __init__(self, config):
-        self.source = config.source
-        self.target = config.target
+    def __init__(self, config, sentences):
+        self.sentences = sentences
         self.method = config.method
         self.verbose = config.verbose
 
     def calculate(self):
         methods = {
-            'cosine': cosine_similarity,
-            'manhattan': manhattan_distance,
-            'euclidean': euclidean_distance,
+            'cosine': cosine_sim,
+            'manhattan': manhattan_dist,
+            'euclidean': euclidean_dist,
             'angular': angular_distance,
             'inner': inner_product,
             'ts-ss': triangle_sector_similarity,
-            'pairwise': pairwise_cos_sim,
-            'pairwise-idf': pairwise_cos_sim
         }
 
-        if 'pairwise' in self.method:
-            print(f'[ERROR] Pairwise similarity is not supported with ELMo yet')
-            return False
-
         if self.method not in methods:
+            print(f'[ERROR] The method you chosen is not supported yet.')
             return False
 
         nlp = English()
         tokenizer = Tokenizer(nlp.vocab)
 
-        tokenized_source = [tok.text for tok in tokenizer(self.source)]
-        tokenized_target = [tok.text for tok in tokenizer(self.target)]
+        sentences = [[tok.text for tok in tokenizer(sentence)]
+                     for sentence in self.sentences]
 
-        source_ids = batch_to_ids([tokenized_source])
-        target_ids = batch_to_ids([tokenized_target])
+        char_ids = batch_to_ids(sentences)
 
         elmo = Elmo(options_file, weight_file, 1, dropout=0)
 
         if self.verbose:
             print(f'[LOGGING] Now embedding sentence...')
-        embed_source = elmo(source_ids)['elmo_representations'][0].squeeze(0)
-        embed_target = elmo(target_ids)['elmo_representations'][0].squeeze(0)
 
-        embed_source = embed_source.detach().numpy()
-        embed_target = embed_target.detach().numpy()
+        embeddings = elmo(char_ids)['elmo_representations'][0].squeeze(0)
+        embeddings = embeddings.detach().numpy()
 
         if 'pairwise' not in self.method:
-            summed_source = vector_summation(embed_source)
-            summed_target = vector_summation(embed_target)
+            summed_embeddings = vector_summation(embeddings)
 
         method = methods[self.method]
+
         if self.verbose:
             print(f'[LOGGING] Calculating similarity between sentences...')
-        similarity = method(summed_source, summed_target)
-        return similarity
+
+        similarity = method(summed_embeddings, summed_embeddings)
+        plot_similarity(self.sentences, similarity, self.method)

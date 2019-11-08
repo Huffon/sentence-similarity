@@ -15,29 +15,29 @@ def main(config):
         print(f'[ERROR] The model you chosen is not supported yet.')
         return
 
-    model = models[config.model](config)
-    similarity = model.calculate()
+    if config.verbose:
+        print(f'[LOGGING] Loading the corpus...')
 
-    if not similarity:
-        print(f'[ERROR] The method you chosen is not supported.')
-        return
+    f = open('corpus.txt', 'r', encoding='utf-8')
+    sentences = f.readlines()
+    sentences = [sentence.replace('\n', '') for sentence in sentences]
+
+    model = models[config.model](config, sentences)
 
     if config.verbose:
-        print(f'[LOGGING] You chose the "{config.model}" as a model.\n'
-              f'[LOGGING] You chose the "{config.method}" as a method.')
+        print(f'[LOGGING] You chose the "{config.model.upper()}" as a model.\n'
+              f'[LOGGING] You chose the "{config.method.upper()}" as a method.')
 
-    print(f'[RESULT]:\n'
-          f'Similarity using [{config.model}] with. [{config.method}] between\n'
-          f'\t source> "{config.source}"\n'
-          f'\t target> "{config.target}" is | {similarity: .5f}')
+    model.calculate()
+
+    if config.verbose:
+        print(f'[LOGGING] Terminating the program...')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Sentence similarity calculator'
     )
-    parser.add_argument('--source', type=str, default='I ate an apple')
-    parser.add_argument('--target', type=str, default='I went to the Apple')
     parser.add_argument('--model', type=str, default='use',
                         choices=['use', 'elmo', 'bert'])
     parser.add_argument('--method', type=str, default='cosine',

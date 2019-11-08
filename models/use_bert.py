@@ -7,17 +7,16 @@ from sentence_transformers import SentenceTransformer
 
 
 class BERTCalculator:
-    def __init__(self, config):
-        self.source = config.source
-        self.target = config.target
+    def __init__(self, config, sentences):
+        self.sentences = sentences
         self.method = config.method
         self.verbose = config.verbose
 
     def calculate(self):
         methods = {
-            'cosine': cosine_similarity,
-            'manhattan': manhattan_distance,
-            'euclidean': euclidean_distance,
+            'cosine': cosine_sim,
+            'manhattan': manhattan_dist,
+            'euclidean': euclidean_dist,
             'angular': angular_distance,
             'inner': inner_product,
             'ts-ss': triangle_sector_similarity,
@@ -26,22 +25,29 @@ class BERTCalculator:
         }
 
         if self.method not in methods:
+            print(f'[ERROR] The method you chosen is not supported yet.')
             return False
 
         if 'pairwise' in self.method:
             if 'idf' in self.method:
-                return bert_pairwise_cos_sim(self.source, self.target, idf=True)
-            return bert_pairwise_cos_sim(self.source, self.target)
+                similarity = bert_pairwise_cos_sim(self.sentences, idf=True)
+                plot_similarity(self.sentences, similarity, self.method)
+                return
+
+            similarity = bert_pairwise_cos_sim(self.sentences)
+            plot_similarity(self.sentences, similarity, self.method)
+            return
 
         model = SentenceTransformer('bert-base-nli-mean-tokens')
 
         if self.verbose:
             print(f'[LOGGING] Now embedding sentence...')
-        embed_source = model.encode([self.source])[0]
-        embed_target = model.encode([self.target])[0]
 
+        embed_sentences = np.asarray(model.encode(self.sentences))
         method = methods[self.method]
+
         if self.verbose:
             print(f'[LOGGING] Calculating similarity between sentences...')
-        similarity = method(embed_source, embed_target)
-        return similarity
+
+        similarity = method(embed_sentences, embed_sentences)
+        plot_similarity(self.sentences, similarity, self.method)
