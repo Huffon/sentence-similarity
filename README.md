@@ -48,7 +48,7 @@ python sensim.py
 - Result:
 
 <p align="center">
-  <img width="200" height="200" src="fig/result.png">
+  <img width="500" height="500" src="fig/result.png">
 </p>
 
 <br/>
