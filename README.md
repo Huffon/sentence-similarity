@@ -24,12 +24,12 @@ pip install -r requirements.txt
 <br/>
 
 ## Usage
-- To test your dataset, you should fill `corpus.txt` with your sentences.
+- To test your dataset, you should fill out `corpus.txt` with your sentences as below.
 ```
-# Example
 I ate an apple.
 I went to the Apple.
 I ate an orange.
+...
 ```
 - Then, choose the model and method to be used to calculate the similarity between source and target sentences.
 ```
@@ -42,7 +42,7 @@ python sensim.py
 <br/>
 
 ## Examples
-- In the following section, you can see various use-case of `sentence-similarity`.
+- In the following section, you can the result of `sentence-similarity`.
 - As you guys know, there is a no silver-bullet which can calculate perfect similarity between sentences. You should conduct various experiments with your dataset.
     - _**Caution**_: TS-SS score might not fit with short-sentence similarity task, since this method originally devised to calculate the similarity between documents.
 - Result:
@@ -54,12 +54,15 @@ python sensim.py
 <br/>
 
 ## Requirements
-- Python version should be higher than **3.7**
+- Python version should be higher than **3.7.x**
 - You can install **PyTorch** via official [Installation guide](https://pytorch.org/get-started/locally/)
 ```
 allennlp==0.9.0
 bert-score==0.2.1
 numpy==1.17.3
+scikit-learn==0.21.3
+scipy==1.3.1
+seaborn==0.9.0
 sentence-transformers==0.2.3
 spacy==2.1.9
 tensorflow==1.15.0
