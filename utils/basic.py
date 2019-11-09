@@ -1,8 +1,6 @@
 import math
 import numpy as np
 import seaborn as sns
-from numpy import arccos
-from numpy.linalg import norm
 import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances, \
     manhattan_distances

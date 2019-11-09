@@ -1,4 +1,4 @@
-# Sentence Similarity
+# Sentence Similarity Calculator
 This repo contains various ways to calculate the similarity between source and target sentences. You can choose **the pre-trained models** you want to use such as _ELMo_, _BERT_ and _Universal Sentence Encoder (USE)_.
 
 And you can also choose **the method** to be used to get the similarity:
@@ -76,9 +76,9 @@ torch==1.3.0
 <br/>
 
 ## TODO
+- Upgrade TF to TF2.0 to use `USE 3`
 - Add pairwise cosine similarity method in `use_elmo`.
 - Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
-- Upgrade TF to TF2.0 to use `USE 3`
 
 <br/>
 

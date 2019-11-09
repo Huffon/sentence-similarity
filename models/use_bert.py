@@ -1,8 +1,6 @@
 from utils.basic import *
 from utils.ts_ss import triangle_sector_similarity
 from utils.pairwise import bert_pairwise_cos_sim
-
-from bert_score import score
 from sentence_transformers import SentenceTransformer
 
 

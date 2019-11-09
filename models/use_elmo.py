@@ -1,6 +1,5 @@
 from utils.basic import *
 from utils.ts_ss import triangle_sector_similarity
-from utils.pairwise import pairwise_cos_sim, pairwise_cos_sim_idf
 
 from spacy.lang.en import English
 from spacy.tokenizer import Tokenizer
