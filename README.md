@@ -34,9 +34,9 @@ I ate an orange.
 - Then, choose the model and method to be used to calculate the similarity between source and target sentences.
 ```
 python sensim.py
-    --model  MODEL_NAME
-    --method METHOD_NAME
-    --verbose LOG_OPTION (bool)
+    --model    MODEL_NAME
+    --method   METHOD_NAME
+    --verbose  LOG_OPTION (bool)
 ```
 
 <br/>

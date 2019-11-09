@@ -13,14 +13,15 @@ def theta(src, tgt):
 
 def magnitude_difference(src, tgt):
     src_len = len(src)
-    src_norm = norm(src, axis=1).repeat(src_len).reshape(src_len, src_len)
+    src_norm = norm(src, axis=1).repeat(src_len).reshape(src_len, -1)
     tgt_norm = norm(tgt, axis=1)
     difference_ = np.abs(src_norm - tgt_norm)
     return difference_
 
 
 def triangle_area_similarity(src, tgt, theta_):
-    src_norm = norm(src, axis=1)
+    src_len = len(src)
+    src_norm = norm(src, axis=1).repeat(src_len).reshape(src_len, -1)
     tgt_norm = norm(tgt, axis=1)
     triangle_similarity_ = (src_norm * tgt_norm * np.sin(theta_)) / 2
     return triangle_similarity_
