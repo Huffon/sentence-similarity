@@ -45,7 +45,7 @@ def plot_similarity(sentences, similarity, method):
     max_sim = np.max(similarity)
     min_sim = np.min(similarity)
 
-    sns.set(font_scale=0.8)
+    sns.set(font_scale=1.0)
     graph = sns.heatmap(
             similarity,
             vmin=min_sim,

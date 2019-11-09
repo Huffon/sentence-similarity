@@ -1,5 +1,5 @@
 # Sentence Similarity
-This repo contains various ways to calculate the similarity between source and target sentences. You can use **the pre-trained models** you want to use such as _ELMo_, _BERT_ and _Universal Sentence Encoder (USE)_.
+This repo contains various ways to calculate the similarity between source and target sentences. You can choose **the pre-trained models** you want to use such as _ELMo_, _BERT_ and _Universal Sentence Encoder (USE)_.
 
 And you can also choose **the method** to be used to get the similarity:
 
@@ -11,10 +11,13 @@ And you can also choose **the method** to be used to get the similarity:
     6. TS-SS score
     7. Pairwise-cosine similarity
     8. Pairwise-cosine similarity + IDF
+    
+You can experiment with (**The number of models**) x (**The number of methods**) combinations!
+    
 <br/>
 
 ## Installation
-- After cloning this repository, you can simply download all the dependent libraries described in `requirements.txt` with `pip install -r requirements.txt`.
+- After cloning this repository, you can simply install all the dependent libraries described in `requirements.txt` with `pip install -r requirements.txt`.
 ```
 git clone https://github.com/Huffon/sentence-similarity.git
 cd sentence-similarity
@@ -24,7 +27,7 @@ pip install -r requirements.txt
 <br/>
 
 ## Usage
-- To test your dataset, you should fill out `corpus.txt` with your sentences as below.
+- To test your sentences, you should fill out `corpus.txt` with sentences as below.
 ```
 I ate an apple.
 I went to the Apple.
@@ -42,9 +45,9 @@ python sensim.py
 <br/>
 
 ## Examples
-- In the following section, you can the result of `sentence-similarity`.
-- As you guys know, there is a no silver-bullet which can calculate perfect similarity between sentences. You should conduct various experiments with your dataset.
-    - _**Caution**_: TS-SS score might not fit with short-sentence similarity task, since this method originally devised to calculate the similarity between documents.
+- In the following section, you can see the result of `sentence-similarity`.
+- As you guys know, there is a no **silver-bullet** which can calculate perfect similarity between sentences. You should conduct various experiments with your dataset.
+    - _**Caution**_: `TS-SS score` might not fit with short-sentence similarity task, since this method originally devised to calculate the similarity between documents.
 - Result:
 
 <p align="center">
@@ -54,8 +57,8 @@ python sensim.py
 <br/>
 
 ## Requirements
-- Python version should be higher than **3.7.x**
-- You can install **PyTorch** via official [Installation guide](https://pytorch.org/get-started/locally/)
+- Python version should be higher than **3.6.x**
+- You should install **PyTorch** via official [Installation guide](https://pytorch.org/get-started/locally/)
 ```
 allennlp==0.9.0
 bert-score==0.2.1
@@ -75,6 +78,7 @@ torch==1.3.0
 ## TODO
 - Add pairwise cosine similarity method in `use_elmo`.
 - Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
+- Upgrade TF to TF2.0 to use `USE 3`
 
 <br/>
 
