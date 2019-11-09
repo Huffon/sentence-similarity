@@ -51,7 +51,7 @@ def plot_similarity(sentences, similarity, method):
             annot=True,
             square=True,
             fmt='1g',
-            cmap="coolwarm",
+            cmap="Greens",
             cbar=False)
 
     graph.set_xticklabels(sentences, rotation=0)
