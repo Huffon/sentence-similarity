@@ -103,3 +103,4 @@ torch==1.3.0
 ### Articles
 - [An Overview of Sentence Embedding Methods](http://mlexplained.com/2017/12/28/an-overview-of-sentence-embedding-methods/)
 - [Comparing Sentence Similarity Methods](http://nlp.town/blog/sentence-similarity/)
+- [The Current Best of Universal Word Embeddings and Sentence Embeddings](https://medium.com/huggingface/universal-word-sentence-embeddings-ce48ddc8fc3a)
