@@ -59,6 +59,7 @@ python sensim.py
 ## Requirements
 - Python version should be higher than **3.6.x**
 - You should install **PyTorch** via official [Installation guide](https://pytorch.org/get-started/locally/)
+- To use `spaCy` model which is used to tokenize input sentence, download English model by running `python -m spacy download en_core_web_sm`.
 ```
 allennlp==0.9.0
 bert-score==0.2.1
