@@ -47,7 +47,7 @@ python sensim.py
 ## Examples
 - In the following section, you can see the result of `sentence-similarity`.
 - As you guys know, there is a no **silver-bullet** which can calculate perfect similarity between sentences. You should conduct various experiments with your dataset.
-    - _**Caution**_: `TS-SS score` might not fit with short-sentence similarity task, since this method originally devised to calculate the similarity between documents.
+    - _**Caution**_: `TS-SS score` might not fit with short-sentences similarity task, since this method originally devised to calculate the similarity between documents.
 - Result:
 
 <p align="center">
@@ -79,7 +79,7 @@ torchtext==0.4.0
 <br/>
 
 ## TODO
-- [x] Upgrade TF to TF2.0 to use `USE 3`
+- [x] Upgrade TF to TF2.0 to use `USE-4`
 - [ ] Add pairwise cosine similarity method in `use_elmo`.
 - [ ] Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
 

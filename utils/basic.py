@@ -61,7 +61,7 @@ def plot_similarity(sentences, similarity, method):
 
     ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
     ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
-    ax.set_title(f'Sentence Similarity using {method}')
+    ax.set_title(f'Sentence Similarity using {method.upper()}')
 
     plt.show()
     plt.close()
