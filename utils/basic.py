@@ -1,7 +1,7 @@
 import math
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances, \
     manhattan_distances
 
@@ -43,18 +43,25 @@ def plot_similarity(sentences, similarity, method):
     max_sim = np.max(similarity)
     min_sim = np.min(similarity)
 
-    sns.set(font_scale=1.0)
-    graph = sns.heatmap(
-            similarity,
-            vmin=min_sim,
-            vmax=max_sim,
-            annot=True,
-            square=True,
-            fmt='1g',
-            cmap="Greens",
-            cbar=False)
+    fig = plt.figure(figsize=(10, 10))
+    ax = fig.add_subplot(111)
 
-    graph.set_xticklabels(sentences, rotation=0)
-    graph.set_yticklabels(sentences, rotation=0)
-    graph.set_title(f'Sentence Similarity using {method}')
+    ax.matshow(similarity, 
+               vmin=min_sim, 
+               vmax=max_sim, 
+               interpolation='nearest', 
+               cmap='Greens')
+
+    for (i, j), z in np.ndenumerate(similarity):
+        ax.text(j, i, '{:0.2f}'.format(z), ha='center', va='center', fontsize=12)
+
+    ax.tick_params(labelsize=15)
+    ax.set_xticklabels(['']+sentences)
+    ax.set_yticklabels(['']+sentences)
+
+    ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
+    ax.set_title(f'Sentence Similarity using {method}')
+
     plt.show()
+    plt.close()

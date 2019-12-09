@@ -27,11 +27,13 @@ class BERTCalculator:
             return False
 
         if 'pairwise' in self.method:
+            # Use-case of Pairwise cosine similarity with IDF
             if 'idf' in self.method:
                 similarity = bert_pairwise_cos_sim(self.sentences, idf=True)
                 plot_similarity(self.sentences, similarity, self.method)
                 return
 
+            # Use-case of Pairwise cosine similarity
             similarity = bert_pairwise_cos_sim(self.sentences)
             plot_similarity(self.sentences, similarity, self.method)
             return
