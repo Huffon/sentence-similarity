@@ -79,9 +79,9 @@ torchtext==0.4.0
 <br/>
 
 ## TODO
-[x] Upgrade TF to TF2.0 to use `USE 3`
-[] Add pairwise cosine similarity method in `use_elmo`.
-[] Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
+- [x] Upgrade TF to TF2.0 to use `USE 3`
+- [ ] Add pairwise cosine similarity method in `use_elmo`.
+- [ ] Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
 
 <br/>
 

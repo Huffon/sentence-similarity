@@ -42,7 +42,7 @@ class ELMoCalculator:
         if self.verbose:
             print(f'[LOGGING] Now embedding sentence...')
 
-        embeddings = elmo(char_ids)['elmo_representations'][0].squeeze(0)
+        embeddings = elmo(char_ids)['elmo_representations'][0]
         embeddings = embeddings.detach().numpy()
 
         if 'pairwise' not in self.method:
