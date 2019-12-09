@@ -63,23 +63,25 @@ python sensim.py
 ```
 allennlp==0.9.0
 bert-score==0.2.1
+en-core-web-sm==2.2.0
 numpy==1.17.3
 scikit-learn==0.21.3
 scipy==1.3.1
 seaborn==0.9.0
 sentence-transformers==0.2.3
-spacy==2.1.9
-tensorflow==1.15.0
+spacy==2.2.0
+tensorflow==2.0.0
 tensorflow-hub==0.7.0
 torch==1.3.0
+torchtext==0.4.0
 ```
 
 <br/>
 
 ## TODO
-- Upgrade TF to TF2.0 to use `USE 3`
-- Add pairwise cosine similarity method in `use_elmo`.
-- Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
+[x] Upgrade TF to TF2.0 to use `USE 3`
+[] Add pairwise cosine similarity method in `use_elmo`.
+[] Add `InferSent`, `Sent2Vec`, plain `GloVe` as models.
 
 <br/>
 

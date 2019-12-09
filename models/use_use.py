@@ -6,7 +6,7 @@ import tensorflow as tf
 import tensorflow_hub as hub
 
 logging.set_verbosity(logging.INFO)
-module_url = "https://tfhub.dev/google/universal-sentence-encoder/2"
+module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
 
 
 class USECalculator:
@@ -29,16 +29,11 @@ class USECalculator:
             print(f'[ERROR] The method you chosen is not supported yet.')
             return False
 
-        model = hub.Module(module_url)
+        model = hub.load(module_url)
         if self.verbose:
             print(f'[LOGGING] Now embedding sentence...')
 
-        with tf.Session() as session:
-            session.run(
-                [tf.compat.v1.global_variables_initializer(),
-                 tf.compat.v1.tables_initializer()])
-            embeddings = session.run(model(self.sentences))
-
+        embeddings = model(self.sentences)
         method = methods[self.method]
 
         if self.verbose:
