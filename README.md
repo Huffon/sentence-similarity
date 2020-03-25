@@ -24,7 +24,7 @@ You can experiment with (**The number of models**) x (**The number of methods**)
 ```
 git clone https://github.com/Huffon/sentence-similarity.git
 cd sentence-similarity
-bash download.sh
+sh download.sh
 ```
 
 <br/>
