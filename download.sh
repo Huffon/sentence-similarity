@@ -1,7 +1,7 @@
 # Set virtual environment
-conda create -n test2
+conda create -n sensim
 eval "$(conda shell.bash hook)"
-conda activate test2
+conda activate sensim
 
 # Install required libraries
 conda install tensorflow
