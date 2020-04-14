@@ -1,3 +1,4 @@
 allennlp
 tensorflow_hub
-sentence_transformers
+sentence-transformers
+bert_score

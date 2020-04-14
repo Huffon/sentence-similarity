@@ -9,3 +9,4 @@ out
 gen
 venv/
 */__pycache__
+.empty

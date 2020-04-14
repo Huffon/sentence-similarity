@@ -1,6 +1,8 @@
 import math
+
 import numpy as np
 from numpy.linalg import norm
+
 from utils.basic import euclidean_dist, cosine_sim
 
 
@@ -31,7 +33,7 @@ def sector_area_similarity(src, tgt, theta_):
     distance_ = euclidean_dist(src, tgt)
     difference_ = magnitude_difference(src, tgt)
     sector_similarity_ = math.pi * ((distance_ + difference_) ** 2)
-    sector_similarity_ *= (theta_ / 360)
+    sector_similarity_ *= theta_ / 360
     return sector_similarity_
 
 

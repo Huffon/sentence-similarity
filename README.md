@@ -19,18 +19,20 @@ You can experiment with (**The number of models**) x (**The number of methods**)
 ## Installation
 
 - This project is developed under **conda** enviroment
-- After cloning this repository, you can simply install all the dependent libraries described in `requirements.txt` with `bash download.sh`
+- After cloning this repository, you can simply install all the dependent libraries described in `requirements.txt` with `bash install.sh`
 
 ```
+conda create -n sensim python=3.7
+conda activate sensim
 git clone https://github.com/Huffon/sentence-similarity.git
 cd sentence-similarity
-sh download.sh
+bash install.sh
 ```
 
 <br/>
 
 ## Usage
-- To test your sentences, you should fill out your won `corpus.txt` with sentences as below
+- To **test** your own sentences, you should fill out [**corpus.txt**](corpus.txt) with sentences as below:
 
 ```
 I ate an apple.
@@ -39,7 +41,7 @@ I ate an orange.
 ...
 ```
 
-- Then, choose the model and method to be used to calculate the similarity between source and target sentences
+- Then, **choose** the **model** and **method** to be used to calculate the similarity between source and target sentences
 
 ```
 python sensim.py
@@ -52,27 +54,15 @@ python sensim.py
 <br/>
 
 ## Examples
-- In the following section, you can see the example result of `sentence-similarity`
-- As you know, there is a no **silver-bullet** which can calculate _perfect similarity_ between sentences
+- In this section, you can see the example result of `sentence-similarity`
+- As you know, there is a no **silver-bullet** which can calculate **_perfect similarity_** between sentences
 - You should conduct various experiments with your dataset
-    - _**Caution**_: `TS-SS score` might not fit with **sentence** similarity task, since this method originally devised to calculate the similarity between documents
-- Result:
+    - _**Caution**_: `TS-SS score` might not fit with **sentence** similarity task, since this method originally devised to calculate the similarity between long documents
+- **Result**:
 
 <p align="center">
   <img width="600" height="500" src="img/result.png">
 </p>
-
-<br/>
-
-## Requirements
-- Python version should be higher than **3.6.x**
-- You should install **PyTorch** via official [Installation guide](https://pytorch.org/get-started/locally/)
-
-```
-allennlp
-tensorflow_hub
-sentence_transformers
-```
 
 <br/>
 
@@ -85,6 +75,7 @@ sentence_transformers
 - [BERTScore: Evaluating Text Generation with BERT](https://arxiv.org/abs/1904.09675)
 - [A Hybrid Geometric Approach for Measuring Similarity Level Among Documents and Document Clustering](https://ieeexplore.ieee.org/document/7474366/metrics#metrics)
 
+<br/>
 
 ### Libraries
 - [TF-hub's Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder/2)
@@ -93,6 +84,7 @@ sentence_transformers
 - [BERTScore](https://github.com/Tiiiger/bert_score)
 - [Vector Similarity](https://github.com/taki0112/Vector_Similarity)
 
+<br/>
 
 ### Articles
 - [An Overview of Sentence Embedding Methods](http://mlexplained.com/2017/12/28/an-overview-of-sentence-embedding-methods/)
